@@ -38,20 +38,20 @@ dependencies:
 
 ### Image Resources
 
-<li> bg_2.jpg</li>
-<li> doctor.jpg</li>
-<li> profile.png</li>
-<li> patient.jpg</li>
-<li> main.jpg</li>
-<li> health_3.jpg</li>
-<li> health_2.jpg</li>
-<li> health.jpg</li>
-<li> doctor_6.jpg</li>
-<li> doctor_5.jpg</li>
-<li> doctor_4.jpg</li>
-<li> doctor_3.jpg</li>
-<li> doctor_2.jpg</li>
-<li> doctor_1.jpg</li>
+- bg_2.jpg
+- doctor.jpg
+- profile.png
+- patient.jpg
+- main.jpg
+- health_3.jpg
+- health_2.jpg
+- health.jpg
+- doctor_6.jpg
+- doctor_5.jpg
+- doctor_4.jpg
+- doctor_3.jpg
+- doctor_2.jpg
+- doctor_1.jpg
 
 ### Screens
 
