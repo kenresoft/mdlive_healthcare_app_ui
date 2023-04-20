@@ -38,8 +38,6 @@ dependencies:
 
 ### Image Resources
 
-```html
-
 <li> bg_2.jpg</li>
 <li> doctor.jpg</li>
 <li> profile.png</li>
@@ -54,7 +52,6 @@ dependencies:
 <li> doctor_3.jpg</li>
 <li> doctor_2.jpg</li>
 <li> doctor_1.jpg</li>
-```
 
 ### Screens
 
