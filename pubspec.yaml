@@ -17,8 +17,8 @@ dependencies:
     path: ../../AndroidStudioProjects/Flutter/packages/bottom_nav
   fontresoft: ^0.0.5
   extensionresoft: ^0.0.5
-  cupertino_icons: ^1.0.5
-  go_router: ^7.1.1
+  cupertino_icons: ^1.0.6
+  go_router: ^13.2.3
   flutter_riverpod: ^2.3.6
   fluttertoast: ^8.2.2
 
