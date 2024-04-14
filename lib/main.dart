@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
             package: FontResoft.package,
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
             typography: Typography.material2021(englishLike: Typography.dense2021),
             textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
           ),
