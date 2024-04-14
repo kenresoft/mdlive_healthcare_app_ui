@@ -27,152 +27,154 @@ class _HomeState extends State<Home> {
       onTap: () => focusNode.unfocus(),
       child: Scaffold(
         backgroundColor: const Color(0xff23355f),
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Padding(
-            padding: const EdgeInsets.all(20).copyWith(top: 76),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-                Text('Hello,', style: TextStyle(fontSize: 16)),
-                Text('Kenneth', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-              ]),
-              Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                child: const CircleAvatar(
-                  radius: 20,
-                  backgroundImage: ExactAssetImage(Constants.bg),
-                  foregroundImage: ExactAssetImage(Constants.profile),
-                ),
-              ),
-            ]),
-          ),
-
-          /// Card
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                final width = constraints.maxWidth - 140;
-                log(width.toString());
-                return Card(
-                  shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  color: Colors.transparent,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(image: ExactAssetImage(Constants.main), fit: BoxFit.fitWidth),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.all(35).copyWith(left: 10, right: 10),
-                      decoration: BoxDecoration(color: const Color(0xb03a4d7f), borderRadius: BorderRadius.circular(12)),
-                      child: Row(children: [
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: const Image(
-                              image: ExactAssetImage(Constants.patient),
-                              height: 65,
-                              width: 65,
-                              fit: BoxFit.cover,
-                            )),
-                        10.spaceX(),
-                        Expanded(
-                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            const Text('Self check up Covid-19', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                            10.spaceY(),
-                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                              SizedBox(
-                                width: width,
-                                child: Text(
-                                  'Contains several list of questions to check your physical condition',
-                                  maxLines: 2,
-                                  style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
-                                ),
-                              ),
-                              const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
-                            ]),
-                          ]),
-                        )
-                      ]),
-                    ),
+        body: SingleChildScrollView(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Padding(
+              padding: const EdgeInsets.all(20).copyWith(top: 76),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+                  Text('Hello,', style: TextStyle(fontSize: 16)),
+                  Text('Kenneth', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+                ]),
+                Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                  child: const CircleAvatar(
+                    radius: 20,
+                    backgroundImage: ExactAssetImage(Constants.bg),
+                    foregroundImage: ExactAssetImage(Constants.profile),
                   ),
-                );
-              },
+                ),
+              ]),
             ),
-          ),
-
-          20.spaceY(),
-
-          /// TextField
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: TextField(
-              focusNode: focusNode,
-              controller: textEditingController,
-              style: TextStyle(color: color.primaryContainer),
-              decoration: InputDecoration(
-                fillColor: const Color(0xff3a4d7f).withOpacity(0.3),
-                filled: true,
-                hintText: 'How can I help you?',
-                hintStyle: TextStyle(color: color.inversePrimary),
-                contentPadding: const EdgeInsets.all(20),
-                suffixIcon: const Padding(
-                  padding: EdgeInsetsDirectional.only(end: 8.0),
-                  child: Icon(CupertinoIcons.search, color: Colors.white, size: 20),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide.none,
+          
+            /// Card
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  final width = constraints.maxWidth - 140;
+                  log(width.toString());
+                  return Card(
+                    shadowColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    color: Colors.transparent,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: const DecorationImage(image: ExactAssetImage(Constants.main), fit: BoxFit.fitWidth),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(35).copyWith(left: 10, right: 10),
+                        decoration: BoxDecoration(color: const Color(0xb03a4d7f), borderRadius: BorderRadius.circular(12)),
+                        child: Row(children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: const Image(
+                                image: ExactAssetImage(Constants.patient),
+                                height: 65,
+                                width: 65,
+                                fit: BoxFit.cover,
+                              )),
+                          10.spaceX(),
+                          Expanded(
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              const Text('Self check up Covid-19', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                              10.spaceY(),
+                              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                                SizedBox(
+                                  width: width,
+                                  child: Text(
+                                    'Contains several list of questions to check your physical condition',
+                                    maxLines: 2,
+                                    style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
+                                  ),
+                                ),
+                                const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
+                              ]),
+                            ]),
+                          )
+                        ]),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          
+            20.spaceY(),
+          
+            /// TextField
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: TextField(
+                focusNode: focusNode,
+                controller: textEditingController,
+                style: TextStyle(color: color.primaryContainer),
+                decoration: InputDecoration(
+                  fillColor: const Color(0xff3a4d7f).withOpacity(0.3),
+                  filled: true,
+                  hintText: 'How can I help you?',
+                  hintStyle: TextStyle(color: color.inversePrimary),
+                  contentPadding: const EdgeInsets.all(20),
+                  suffixIcon: const Padding(
+                    padding: EdgeInsetsDirectional.only(end: 8.0),
+                    child: Icon(CupertinoIcons.search, color: Colors.white, size: 20),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
               ),
             ),
-          ),
-
-          20.spaceY(),
-
-          /// LIstView
-          SizedBox(
-            height: 70,
-            child: ListView.builder(
-                itemCount: HealthCategory.getAll.length,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (c, index) {
-                  return buildCategoryItem(index);
-                }),
-          ),
-
-          20.spaceY(),
-
-          ///Row
-          Padding(
-            padding: const EdgeInsets.all(20).copyWith(top: 0, bottom: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Top doctors', style: TextStyle(fontSize: 21)),
-                Text('See all', style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7))),
-              ],
+          
+            20.spaceY(),
+          
+            /// LIstView
+            SizedBox(
+              height: 70,
+              child: ListView.builder(
+                  itemCount: HealthCategory.getAll.length,
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (c, index) {
+                    return buildCategoryItem(index);
+                  }),
             ),
-          ),
-
-          /// LIstView
-          SizedBox(
-            height: 190,
-            child: ListView.builder(
-                itemCount: Doctor.getAll.length,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (c, index) {
-                  return buildDoctorItem(index);
-                }),
-          ),
-
-          20.spaceY(),
-        ]),
+          
+            20.spaceY(),
+          
+            ///Row
+            Padding(
+              padding: const EdgeInsets.all(20).copyWith(top: 0, bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Top doctors', style: TextStyle(fontSize: 21)),
+                  Text('See all', style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7))),
+                ],
+              ),
+            ),
+          
+            /// LIstView
+            SizedBox(
+              height: 190,
+              child: ListView.builder(
+                  itemCount: Doctor.getAll.length,
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (c, index) {
+                    return buildDoctorItem(index);
+                  }),
+            ),
+          
+            20.spaceY(),
+          ]),
+        ),
 
         /// BNB
         bottomNavigationBar: CustomBottomNav(
