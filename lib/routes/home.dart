@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.all(20).copyWith(top: 76),
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+                const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text('Hello,', style: TextStyle(fontSize: 16)),
                   Text('Kenneth', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
                 ]),
