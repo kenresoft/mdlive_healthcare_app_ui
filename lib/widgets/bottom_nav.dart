@@ -6,7 +6,7 @@ import '../data/constants/constants.dart';
 import '../main.dart';
 
 class CustomBottomNav extends StatefulWidget {
-  const CustomBottomNav({Key? key, required this.context, required this.page}) : super(key: key);
+  const CustomBottomNav({super.key, required this.context, required this.page});
 
   final BuildContext context;
   final int page;
@@ -24,7 +24,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
         splashColor: Colors.transparent,
       ),
       child: Container(
-        height: 82,
+        height: 90,
         padding: const EdgeInsets.all(25).copyWith(top: 5, bottom: 5),
         decoration: const BoxDecoration(
           color: Color(0xff3a4d7f),
@@ -41,13 +41,57 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
           //fixedColor: Theme.of(context).colorScheme.inversePrimary,
           onTap: (index) => buildNavSwitch(index, context),
           iconSize: 23,
-          backgroundColor:Colors.transparent,
+          backgroundColor: Colors.transparent,
           elevation: 0,
-          items: const [
-            BottomNavigationBarItem(label: 'Home', icon: Icon(CupertinoIcons.home)),
-            BottomNavigationBarItem(label: 'Book', icon: Icon(CupertinoIcons.book)),
-            BottomNavigationBarItem(label: 'Chat', icon: Icon(CupertinoIcons.bubble_left)),
-            BottomNavigationBarItem(label: 'Bookmark', icon: Icon(CupertinoIcons.bookmark)),
+          items: [
+            BottomNavigationBarItem(
+              label: 'Home',
+              icon: Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: widget.page == 0 ? const Color(0xff3a5591).withOpacity(0.5) : Colors.transparent,
+                ),
+                child: const Icon(CupertinoIcons.home),
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Book',
+              icon: Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: widget.page == 1 ? Colors.grey : Colors.transparent,
+                ),
+                child: const Icon(CupertinoIcons.book),
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Chat',
+              icon: Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: widget.page == 2 ? Colors.grey : Colors.transparent,
+                ),
+                child: const Icon(CupertinoIcons.bubble_left),
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Bookmark',
+              icon: Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: widget.page == 3 ? Colors.grey : Colors.transparent,
+                ),
+                child: const Icon(CupertinoIcons.bookmark),
+              ),
+            ),
           ],
         ),
       ),
