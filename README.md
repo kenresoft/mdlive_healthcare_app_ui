@@ -23,7 +23,6 @@ dependencies:
   go_router: ^13.2.4
   flutter_riverpod: ^2.5.1
   fluttertoast: ^8.2.5
-
 ```
 
 ### Image Resources
@@ -56,7 +55,9 @@ static const String error = '/error';
 ## Attribution
 
 Design by [Dmitry Lauretsky](https://dribbble.com/dlauretsky) on [Dribble](https://dribbble.com/shots/14666521-MDlive-Health-Care-App-Redesign)
+
 App written in Flutter
+
 Developed [kenresoft](https://kenresoft.github.io)
 
 ## License
