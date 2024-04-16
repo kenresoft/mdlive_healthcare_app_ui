@@ -20,7 +20,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   go_router: ^13.2.3
   flutter_riverpod: ^2.5.1
-  fluttertoast: ^8.2.4
+  fluttertoast: ^8.2.5
 
 dev_dependencies:
   flutter_test:
