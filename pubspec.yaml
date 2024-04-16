@@ -13,12 +13,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  bottom_nav:
-    path: ../../AndroidStudioProjects/Flutter/packages/bottom_nav
+#  bottom_nav:
+#    path: ../../AndroidStudioProjects/Flutter/packages/bottom_nav
   fontresoft: ^0.0.5
   extensionresoft: ^0.0.5
   cupertino_icons: ^1.0.6
-  go_router: ^13.2.3
+  go_router: ^13.2.4
   flutter_riverpod: ^2.5.1
   fluttertoast: ^8.2.5
 

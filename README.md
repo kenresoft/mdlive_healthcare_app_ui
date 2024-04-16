@@ -17,22 +17,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  bottom_nav:
-    git:
-      url: git@github.com:kenresoft/bottom_nav.git
-      ref: master
-  fontresoft:
-    git:
-      url: git@github.com:kenresoft/fontresoft.git
-      ref: master
-  extensionresoft:
-    git:
-      url: git@github.com:kenresoft/extensionresoft.git
-      ref: master
-  cupertino_icons: ^1.0.5
-  go_router: ^6.5.7
-  flutter_riverpod: ^2.3.5
-  fluttertoast: ^8.2.1
+  fontresoft: ^0.0.5
+  extensionresoft: ^0.0.5
+  cupertino_icons: ^1.0.6
+  go_router: ^13.2.4
+  flutter_riverpod: ^2.5.1
+  fluttertoast: ^8.2.5
 
 ```
 
@@ -63,18 +53,11 @@ static const String call = '/call';
 static const String error = '/error';
 ```
 
-## Getting Started
+## Attribution
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Design by [Dmitry Lauretsky](https://dribbble.com/dlauretsky) on [Dribble](https://dribbble.com/shots/14666521-MDlive-Health-Care-App-Redesign)
+App written in Flutter
+Developed [kenresoft](https://kenresoft.github.io)
 
 ## License
 
