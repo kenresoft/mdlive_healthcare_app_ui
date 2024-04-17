@@ -38,7 +38,6 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Theme.of(context).colorScheme.inversePrimary,
           type: BottomNavigationBarType.fixed,
-          //fixedColor: Theme.of(context).colorScheme.inversePrimary,
           onTap: (index) => buildNavSwitch(index, context),
           iconSize: 23,
           backgroundColor: Colors.transparent,
@@ -51,7 +50,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                 height: 45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 0 ? const Color(0xff3a5591).withOpacity(0.5) : Colors.transparent,
+                  color: widget.page == 0 ? const Color(0xff4671C6) : Colors.transparent,
                 ),
                 child: const Icon(CupertinoIcons.home),
               ),
@@ -63,7 +62,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                 height: 45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 1 ? Colors.grey : Colors.transparent,
+                  color: widget.page == 1 ? const Color(0xff4671C6) : Colors.transparent,
                 ),
                 child: const Icon(CupertinoIcons.book),
               ),
@@ -75,7 +74,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                 height: 45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 2 ? Colors.grey : Colors.transparent,
+                  color: widget.page == 2 ? const Color(0xff4671C6) : Colors.transparent,
                 ),
                 child: const Icon(CupertinoIcons.bubble_left),
               ),
@@ -87,7 +86,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                 height: 45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 3 ? Colors.grey : Colors.transparent,
+                  color: widget.page == 3 ? const Color(0xff4671C6) : Colors.transparent,
                 ),
                 child: const Icon(CupertinoIcons.bookmark),
               ),
