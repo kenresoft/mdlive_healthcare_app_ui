@@ -210,8 +210,6 @@ class _HomeState extends State<Home> {
   Widget buildCategoryItem(int index) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final width = constraints.maxWidth;
-        //log(width.toString());
         return Container(
           margin: condition(
             index == 0,

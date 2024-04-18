@@ -5,6 +5,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fontresoft/fontresoft.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mdlive_healthcare_app_ui/providers/theme_provider.dart';
@@ -34,40 +35,51 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, WidgetRef ref, Widget? child) {
         var state = ref.watch(themeProvider.select((value) => value));
         log(state.toString());
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: Constants.appName,
-          themeMode: condition(state, ThemeMode.light, ThemeMode.dark),
-          theme: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.light,
-            colorSchemeSeed: const Color(0xff23355f),
-            fontFamily: FontResoft.poppins,
-            package: FontResoft.package,
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            typography: Typography.material2021(englishLike: Typography.dense2021),
-            textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+        return ScreenUtilInit(
+          designSize: const Size(360, 840),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) => MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: Constants.appName,
+            themeMode: condition(state, ThemeMode.light, ThemeMode.dark),
+            theme: ThemeData(
+              useMaterial3: true,
+              brightness: Brightness.light,
+              colorSchemeSeed: const Color(0xff23355f),
+              fontFamily: FontResoft.poppins,
+              package: FontResoft.package,
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+              typography: Typography.material2021(
+                englishLike: Typography.dense2021.apply(fontSizeFactor: 1.0),
+              ),
+              textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+            ),
+            darkTheme: ThemeData(
+              useMaterial3: true,
+              brightness: Brightness.dark,
+              colorSchemeSeed: const Color(0xff23355f),
+              fontFamily: FontResoft.poppins,
+              package: FontResoft.package,
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              typography: Typography.material2021(
+                englishLike: Typography.dense2021.apply(fontSizeFactor: 1.0),
+              ),
+              textTheme: const TextTheme(bodyMedium: TextStyle()),
+            ),
+            routeInformationProvider: _router.routeInformationProvider,
+            routeInformationParser: _router.routeInformationParser,
+            routerDelegate: _router.routerDelegate,
+            shortcuts: {
+              ...WidgetsApp.defaultShortcuts,
+              const SingleActivator(LogicalKeyboardKey.select): const ActivateIntent(),
+            },
+            localizationsDelegates: const [],
           ),
-          darkTheme: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.dark,
-            colorSchemeSeed: const Color(0xff23355f),
-            fontFamily: FontResoft.poppins,
-            package: FontResoft.package,
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-            textTheme: const TextTheme(bodyMedium: TextStyle()),
-          ),
-          routeInformationProvider: _router.routeInformationProvider,
-          routeInformationParser: _router.routeInformationParser,
-          routerDelegate: _router.routerDelegate,
-          shortcuts: {
-            ...WidgetsApp.defaultShortcuts,
-            const SingleActivator(LogicalKeyboardKey.select): const ActivateIntent(),
-          },
-          localizationsDelegates: const [],
+          child: child,
         );
       },
     );
