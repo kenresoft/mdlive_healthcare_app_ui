@@ -24,30 +24,33 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
         splashColor: Colors.transparent,
       ),
       child: Container(
-        height: 90,
+        alignment: Alignment.center,
+        height: 95,
         padding: const EdgeInsets.all(25).copyWith(top: 5, bottom: 5),
         decoration: const BoxDecoration(
           color: Color(0xff3a4d7f),
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(20),
-            topLeft: Radius.circular(20),
+            topRight: Radius.circular(25),
+            topLeft: Radius.circular(25),
           ),
         ),
         child: BottomNavigationBar(
+          unselectedFontSize: 0,
+          selectedFontSize: 0,
           currentIndex: widget.page,
           selectedItemColor: Colors.white,
           unselectedItemColor: Theme.of(context).colorScheme.inversePrimary,
           type: BottomNavigationBarType.fixed,
           onTap: (index) => buildNavSwitch(index, context),
-          iconSize: 23,
+          iconSize: 28,
           backgroundColor: Colors.transparent,
           elevation: 0,
           items: [
             BottomNavigationBarItem(
-              label: 'Home',
+              label: '',
               icon: Container(
-                width: 45,
-                height: 45,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: widget.page == 0 ? const Color(0xff4671C6) : Colors.transparent,
@@ -56,10 +59,10 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Book',
+              label: '',
               icon: Container(
-                width: 45,
-                height: 45,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: widget.page == 1 ? const Color(0xff4671C6) : Colors.transparent,
@@ -68,10 +71,10 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Chat',
+              label: '',
               icon: Container(
-                width: 45,
-                height: 45,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: widget.page == 2 ? const Color(0xff4671C6) : Colors.transparent,
@@ -80,14 +83,10 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Bookmark',
-              icon: Container(
-                width: 45,
-                height: 45,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 3 ? const Color(0xff4671C6) : Colors.transparent,
-                ),
+              label: '',
+              icon: NavBarActiveItemWidget(
+                widget: widget,
+                pageIndex: 3,
                 child: const Icon(CupertinoIcons.bookmark),
               ),
             ),
@@ -138,5 +137,31 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
         break;
       default:
     }
+  }
+}
+
+class NavBarActiveItemWidget extends StatelessWidget {
+  const NavBarActiveItemWidget({
+    super.key,
+    required this.widget,
+    required this.pageIndex,
+    required this.child,
+  });
+
+  final CustomBottomNav widget;
+  final double pageIndex;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: widget.page == pageIndex ? const Color(0xff4671C6) : Colors.transparent,
+      ),
+      child: child,
+    );
   }
 }
