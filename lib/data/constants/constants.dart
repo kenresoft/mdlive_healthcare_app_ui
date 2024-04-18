@@ -18,7 +18,8 @@ class Constants {
   //Images
   static const String profile = "$imageDir/profile.png";
   static const String main = "$imageDir/main.jpg";
-  static const String bg = "$imageDir/bg_2.jpg";
+  static const String bg = "$imageDir/bg.jpg";
+  static const String bg_2 = "$imageDir/bg_2.jpg";
   static const String doctor = "$imageDir/doctor.jpg";
   static const String doctor_1 = "$imageDir/doctor_1.jpg";
   static const String doctor_2 = "$imageDir/doctor_2.jpg";
