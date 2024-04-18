@@ -25,7 +25,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
       ),
       child: Container(
         alignment: Alignment.center,
-        height: 95,
+        height: 96,
         padding: const EdgeInsets.all(25).copyWith(top: 5, bottom: 5),
         decoration: const BoxDecoration(
           color: Color(0xff3a4d7f),
@@ -48,37 +48,25 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
           items: [
             BottomNavigationBarItem(
               label: '',
-              icon: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 0 ? const Color(0xff4671C6) : Colors.transparent,
-                ),
+              icon: NavBarActiveItemWidget(
+                widget: widget,
+                pageIndex: 0,
                 child: const Icon(CupertinoIcons.home),
               ),
             ),
             BottomNavigationBarItem(
               label: '',
-              icon: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 1 ? const Color(0xff4671C6) : Colors.transparent,
-                ),
+              icon: NavBarActiveItemWidget(
+                widget: widget,
+                pageIndex: 1,
                 child: const Icon(CupertinoIcons.book),
               ),
             ),
             BottomNavigationBarItem(
               label: '',
-              icon: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: widget.page == 2 ? const Color(0xff4671C6) : Colors.transparent,
-                ),
+              icon: NavBarActiveItemWidget(
+                widget: widget,
+                pageIndex: 2,
                 child: const Icon(CupertinoIcons.bubble_left),
               ),
             ),

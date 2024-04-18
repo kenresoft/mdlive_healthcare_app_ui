@@ -2,6 +2,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
 
@@ -9,7 +10,7 @@ import '../data/models/category.dart';
 import '../data/models/doctor.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -51,7 +52,7 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    final width = constraints.maxWidth - 140;
+                    final width = constraints.maxWidth - 160;
                     //log(width.toString());
                     return Card(
                       shadowColor: Colors.transparent,
@@ -80,7 +81,7 @@ class _HomeState extends State<Home> {
                                   width: 65,
                                   fit: BoxFit.cover,
                                 )),
-                            10.spaceX(),
+                            30.spaceX(),
                             Expanded(
                               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                                 const Text(
@@ -89,8 +90,9 @@ class _HomeState extends State<Home> {
                                 ),
                                 10.spaceY(),
                                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                                  SizedBox(
-                                    width: width,
+                                  Container(
+                                    //width: width,
+                                    constraints: BoxConstraints(maxWidth: width),
                                     child: Text(
                                       'Contains several list of questions to check your physical condition',
                                       maxLines: 2,
