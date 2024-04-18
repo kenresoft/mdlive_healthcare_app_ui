@@ -31,15 +31,15 @@ class _HomeState extends State<Home> {
           body: SingleChildScrollView(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32).copyWith(bottom: 20, top: 80),
+                padding: const EdgeInsets.symmetric(horizontal: 32).copyWith(bottom: 20, top: 70),
                 child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text('Hello,', style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300)),
-                    Text('Kenneth', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500)),
+                    Text('Aleksandr', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500)),
                   ]),
                   CircleAvatar(
                     radius: 32,
-                    backgroundImage: ExactAssetImage(Constants.bg),
+                    backgroundImage: ExactAssetImage(Constants.bg_2),
                     foregroundImage: ExactAssetImage(Constants.profile),
                   ),
                 ]),
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
 
               /// Card
               Container(
-                height: 160,
+                height: 150,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         decoration: BoxDecoration(
                           image: const DecorationImage(
-                            image: ExactAssetImage(Constants.main),
+                            image: ExactAssetImage(Constants.bg),
                             fit: BoxFit.fitWidth,
                           ),
                           borderRadius: BorderRadius.circular(12),
@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
 
               /// TextField
               Container(
-                height: 75,
+                height: 70,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: TextField(
                   maxLines: null,
@@ -157,11 +157,11 @@ class _HomeState extends State<Home> {
                     }),
               ),
 
-              35.spaceY(),
+              30.spaceY(),
 
               ///Row
               Padding(
-                padding: const EdgeInsets.all(32).copyWith(top: 0, bottom: 10),
+                padding: const EdgeInsets.all(32).copyWith(top: 0, bottom: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -178,12 +178,12 @@ class _HomeState extends State<Home> {
 
               /// LIstView
               SizedBox(
-                height: 210,
+                height: 218,
                 child: ListView.builder(
                   itemCount: Doctor.getAll.length,
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  itemBuilder: (c, index) => buildDoctorItem(index),
+                  itemBuilder: (context, index) => buildDoctorItem(index),
                 ),
               ),
 
@@ -226,11 +226,17 @@ class _HomeState extends State<Home> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image(
-                  image: ExactAssetImage(Constants.healthIcons[index]),
-                  height: 48,
-                  width: 48,
-                  fit: BoxFit.cover,
+                child: ColorFiltered(
+                  colorFilter: const ColorFilter.mode(
+                    Color(0xff4671C6),
+                    BlendMode.multiply,
+                  ),
+                  child: Image(
+                    image: ExactAssetImage(Constants.healthIcons[index]),
+                    height: 48,
+                    width: 48,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               15.spaceX(),
