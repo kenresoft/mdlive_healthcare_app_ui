@@ -2,7 +2,6 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
 
@@ -40,8 +39,8 @@ class _HomeState extends State<Home> {
                   ]),
                   CircleAvatar(
                     radius: 32,
-                    backgroundImage: ExactAssetImage(Constants.bg_2),
-                    foregroundImage: ExactAssetImage(Constants.profile),
+                    backgroundImage: ExactAssetImage(Constants.main),
+                    foregroundImage: ExactAssetImage(Constants.patient),
                   ),
                 ]),
               ),
@@ -52,13 +51,14 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    final width = constraints.maxWidth - 160;
+                    final width = constraints.maxWidth;
                     //log(width.toString());
                     return Card(
                       shadowColor: Colors.transparent,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       color: Colors.transparent,
                       child: Container(
+                        width: width,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
                             image: ExactAssetImage(Constants.bg),
@@ -67,41 +67,45 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Container(
-                          padding: const EdgeInsets.all(35).copyWith(left: 10, right: 10),
+                          padding: const EdgeInsets.all(0).copyWith(left: 10, right: 10),
                           decoration: BoxDecoration(
                             color: const Color(0xb03a4d7f),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child: const Image(
-                                  image: ExactAssetImage(Constants.patient),
-                                  height: 65,
-                                  width: 65,
-                                  fit: BoxFit.cover,
+                            const ClipRRect(
+                                //borderRadius: BorderRadius.circular(100),
+                                child: Image(
+                              image: ExactAssetImage(Constants.toonDoc),
+                              height: 90,
+                              width: 90,
+                              fit: BoxFit.cover,
                                 )),
-                            30.spaceX(),
+                            10.spaceX(),
                             Expanded(
-                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                const Text(
-                                  'Self check up Covid-19',
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                ),
-                                10.spaceY(),
-                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                                  Container(
-                                    //width: width,
-                                    constraints: BoxConstraints(maxWidth: width),
-                                    child: Text(
-                                      'Contains several list of questions to check your physical condition',
-                                      maxLines: 2,
-                                      style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
-                                    ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 35),
+                                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                  const Text(
+                                    'Self check up Covid-19',
+                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                                   ),
-                                  const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
+                                  10.spaceY(),
+                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                                    Container(
+                                      //width: width,
+                                      margin: const EdgeInsets.only(right: 5),
+                                      constraints: BoxConstraints(maxWidth: width - 160),
+                                      child: Text(
+                                        'Contains Several list of Questions to check Your physical Condition',
+                                        maxLines: 2,
+                                        style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.7)),
+                                      ),
+                                    ),
+                                    const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
+                                  ]),
                                 ]),
-                              ]),
+                              ),
                             )
                           ]),
                         ),
@@ -293,18 +297,17 @@ class _HomeState extends State<Home> {
             height: 60,
             child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35),
           ),
-          5.spaceX(),
-          Text(doctor.name!, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
           10.spaceY(),
+          Text(doctor.name!, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
           Text(
             doctor.role!,
             style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.6)),
           ),
+          14.spaceY(),
           Text(
             'Availability:',
-            style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.3)),
+            style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.3)),
           ),
-          5.spaceY(),
           Text(
             'Tue, 26 May at 9:30',
             style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7)),
