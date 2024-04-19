@@ -2,7 +2,6 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
 
@@ -81,25 +80,32 @@ class _HomeState extends State<Home> {
                               height: 90,
                               width: 90,
                               fit: BoxFit.cover,
-                                )),
+                              ),
+                            ),
                             10.spaceX(),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 35),
+                                padding: const EdgeInsets.symmetric(vertical: 30),
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  const Text(
-                                    'Self check up Covid-19',
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                                  const SizedBox(
+                                    height: 30,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        'Self check up Covid-19',
+                                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
                                   ),
                                   10.spaceY(),
                                   Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                                     Container(
-                                      //width: width,
                                       margin: const EdgeInsets.only(right: 5),
-                                      constraints: BoxConstraints(maxWidth: width - 160),
+                                      constraints: BoxConstraints(maxWidth: width - 160, maxHeight: 42),
                                       child: Text(
                                         'Contains Several list of Questions to check Your physical Condition',
                                         maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.7)),
                                       ),
                                     ),
@@ -298,7 +304,12 @@ class _HomeState extends State<Home> {
             child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35),
           ),
           10.spaceY(),
-          Text(doctor.name!, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+          Text(
+            doctor.name!,
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
           Text(
             doctor.role!,
             style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.6)),
