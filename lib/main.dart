@@ -27,7 +27,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         var state = ref.watch(themeProvider.select((value) => value));
         log(state.toString());
         return ScreenUtilInit(
-          designSize: const Size(360, 840),
+          designSize: const Size(360, 825),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) => MaterialApp.router(
@@ -53,9 +53,14 @@ class MyApp extends StatelessWidget {
               splashColor: Colors.transparent,
               visualDensity: VisualDensity.adaptivePlatformDensity,
               typography: Typography.material2021(
-                englishLike: Typography.dense2021.apply(fontSizeFactor: 1.0),
+                englishLike: Typography.englishLike2018,
               ),
-              textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+              textTheme: Typography.englishLike2021.apply(
+                fontSizeFactor: 1.sp,
+                fontFamily: FontResoft.poppins,
+                package: FontResoft.package,
+              ),
+              //textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
             ),
             darkTheme: ThemeData(
               useMaterial3: true,
@@ -66,7 +71,7 @@ class MyApp extends StatelessWidget {
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
               typography: Typography.material2021(
-                englishLike: Typography.dense2021.apply(fontSizeFactor: 1.0),
+                englishLike: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
               ),
               textTheme: const TextTheme(bodyMedium: TextStyle()),
             ),

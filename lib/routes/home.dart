@@ -2,6 +2,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
 
@@ -183,12 +184,13 @@ class _HomeState extends State<Home> {
               10.spaceY(),
 
               /// LIstView
-              SizedBox(
-                height: 218,
+              Container(
+                //height: 218,
+                constraints: const BoxConstraints(minHeight: 218, maxHeight: 228),
                 child: ListView.builder(
                   itemCount: Doctor.getAll.length,
                   scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
+                  //shrinkWrap: true,
                   itemBuilder: (context, index) => buildDoctorItem(index),
                 ),
               ),
@@ -309,6 +311,8 @@ class _HomeState extends State<Home> {
           Text(
             'Tue, 26 May at 9:30',
             style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7)),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ]),
       ),
