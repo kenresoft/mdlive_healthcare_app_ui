@@ -49,14 +49,14 @@ class _HomeState extends State<Home> {
               /// Card
               Container(
                 height: 160.h,
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 32).w,
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
                     final width = constraints.maxWidth;
                     //log(width.toString());
                     return Card(
                       shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12).r),
                       color: Colors.transparent,
                       child: Container(
                         width: width,
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(12).r,
                         ),
                         child: Container(
-                          padding: const EdgeInsets.all(0).copyWith(left: 10, right: 10),
+                          padding: const EdgeInsets.all(0).copyWith(left: 10.w, right: 10.w),
                           decoration: BoxDecoration(
                             color: const Color(0xb03a4d7f),
                             borderRadius: BorderRadius.circular(12).r,
@@ -85,17 +85,17 @@ class _HomeState extends State<Home> {
                             10.w.spaceX(),
                             Expanded(
                               child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 25).copyWith(right: 10),
+                                  padding: EdgeInsets.symmetric(vertical: 25.h).copyWith(right: 10.w),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
                                         height: 40.h,
-                                        margin: const EdgeInsets.only(right: 20),
-                                        child: const Text(
+                                        margin: EdgeInsets.only(right: 20.w),
+                                        child: Text(
                                           'Self check up Covid-19',
-                                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                         ),
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
-                                            margin: const EdgeInsets.only(right: 3, bottom: 10),
+                                            margin: EdgeInsets.only(right: 3.w, bottom: 10.h),
                                             constraints: BoxConstraints(maxWidth: width - 160.w, maxHeight: 45.h),
                                             child: Text(
                                               'Contains Several list of Question to check Your physical Condition',
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                                               softWrap: false,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                fontSize: 11,
+                                                fontSize: 11.sp,
                                                 color: Colors.white.withOpacity(0.7),
                                                 fontWeight: FontWeight.w400,
                                               ),
@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
               /// TextField
               Container(
                 height: 70.h,
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 32).w,
                 child: TextField(
                   maxLines: null,
                   expands: true,
@@ -153,17 +153,17 @@ class _HomeState extends State<Home> {
                     filled: true,
                     hintText: 'How can I help you?',
                     hintStyle: TextStyle(color: color.inversePrimary, fontWeight: FontWeight.w300, fontSize: 14),
-                    contentPadding: const EdgeInsets.all(20),
-                    suffixIcon: const Padding(
-                      padding: EdgeInsetsDirectional.only(end: 8.0),
-                      child: Icon(CupertinoIcons.search, color: Colors.white, size: 25),
+                    contentPadding: const EdgeInsets.all(20).r,
+                    suffixIcon: Padding(
+                      padding: EdgeInsetsDirectional.only(end: 8.0.w),
+                      child: Icon(CupertinoIcons.search, color: Colors.white, size: 25.r),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12).r,
                       borderSide: BorderSide.none,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12).r,
                       borderSide: BorderSide.none,
                     ),
                   ),
@@ -188,7 +188,7 @@ class _HomeState extends State<Home> {
 
               ///Row
               Padding(
-                padding: const EdgeInsets.all(32).copyWith(top: 0, bottom: 8),
+                padding: const EdgeInsets.all(32).r.copyWith(top: 0, bottom: 8.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -306,36 +306,36 @@ class _HomeState extends State<Home> {
       color: Colors.transparent,
       child: Container(
         width: 170.w,
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15).r,
         decoration: BoxDecoration(
           color: const Color(0xff3a4d7f) /*Colors.white.withOpacity(0.15)*/,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12).r,
         ),
         child: Column(children: [
           Container(
-            margin: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10).r,
             height: 60.h,
             child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35),
           ),
           10.h.spaceY(),
           Text(
             doctor.name!,
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           Text(
             doctor.role!,
-            style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.6)),
+            style: TextStyle(fontSize: 13.sp, color: Colors.white.withOpacity(0.6)),
           ),
           14.h.spaceY(),
           Text(
             'Availability:',
-            style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.3)),
+            style: TextStyle(fontSize: 12.sp, color: Colors.white.withOpacity(0.3)),
           ),
           Text(
             'Tue, 26 May at 9:30',
-            style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7)),
+            style: TextStyle(fontSize: 13.sp, color: Colors.white.withOpacity(0.7)),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
