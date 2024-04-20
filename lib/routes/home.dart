@@ -2,6 +2,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
 
@@ -31,14 +32,14 @@ class _HomeState extends State<Home> {
           body: SingleChildScrollView(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32).copyWith(bottom: 20, top: 70),
-                child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                padding: EdgeInsets.symmetric(horizontal: 32.w).copyWith(bottom: 20.h, top: 70.h),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text('Hello,', style: TextStyle(fontSize: 23, fontWeight: FontWeight.w300)),
-                    Text('Aleksandr', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500)),
+                    Text('Hello,', style: TextStyle(fontSize: 23.h, fontWeight: FontWeight.w300)),
+                    Text('Aleksandr', style: TextStyle(fontSize: 40.h, fontWeight: FontWeight.w500)),
                   ]),
                   CircleAvatar(
-                    radius: 32,
+                    radius: 32.r,
                     backgroundImage: ExactAssetImage(Constants.main),
                     foregroundImage: ExactAssetImage(Constants.patient),
                   ),
@@ -47,7 +48,7 @@ class _HomeState extends State<Home> {
 
               /// Card
               Container(
-                height: 150,
+                height: 160.h,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
@@ -64,34 +65,33 @@ class _HomeState extends State<Home> {
                             image: ExactAssetImage(Constants.bg),
                             fit: BoxFit.fitWidth,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12).r,
                         ),
                         child: Container(
                           padding: const EdgeInsets.all(0).copyWith(left: 10, right: 10),
                           decoration: BoxDecoration(
                             color: const Color(0xb03a4d7f),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12).r,
                           ),
                           child: Row(children: [
-                            const ClipRRect(
-                                //borderRadius: BorderRadius.circular(100),
+                              ClipRRect(
                                 child: Image(
-                              image: ExactAssetImage(Constants.toonDoc),
-                              height: 90,
-                              width: 90,
-                              fit: BoxFit.cover,
+                                  image: const ExactAssetImage(Constants.toonDoc),
+                                  height: 90.h,
+                                  width: 90.h,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            10.spaceX(),
+                            10.w.spaceX(),
                             Expanded(
                               child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 30).copyWith(right: 10),
+                                  padding: const EdgeInsets.symmetric(vertical: 25).copyWith(right: 10),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: 40,
+                                        height: 40.h,
                                         margin: const EdgeInsets.only(right: 20),
                                         child: const Text(
                                           'Self check up Covid-19',
@@ -100,16 +100,18 @@ class _HomeState extends State<Home> {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
-                                      //10.spaceY(),
+                                      5.h.spaceY(),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
                                             margin: const EdgeInsets.only(right: 3, bottom: 10),
-                                            constraints: BoxConstraints(maxWidth: width - 160, maxHeight: 42),
+                                            constraints: BoxConstraints(maxWidth: width - 160.w, maxHeight: 45.h),
                                             child: Text(
                                               'Contains Several list of Question to check Your physical Condition',
                                               maxLines: 2,
+                                              softWrap: false,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
                                                 fontSize: 11,
@@ -118,7 +120,7 @@ class _HomeState extends State<Home> {
                                               ),
                                             ),
                                           ),
-                                          const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
+                                          Icon(CupertinoIcons.forward, color: Colors.white, size: 18.r),
                                         ],
                                       ),
                                     ],
@@ -134,11 +136,11 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              25.spaceY(),
+              25.h.spaceY(),
 
               /// TextField
               Container(
-                height: 70,
+                height: 70.h,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: TextField(
                   maxLines: null,
@@ -168,11 +170,11 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              30.spaceY(),
+              30.h.spaceY(),
 
               /// LIstView
               SizedBox(
-                height: 75,
+                height: 75.h,
                 child: ListView.builder(
                     itemCount: HealthCategory.getAll.length,
                     scrollDirection: Axis.horizontal,
@@ -182,7 +184,7 @@ class _HomeState extends State<Home> {
                     }),
               ),
 
-              30.spaceY(),
+              30.h.spaceY(),
 
               ///Row
               Padding(
@@ -199,12 +201,12 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              10.spaceY(),
+              10.h.spaceY(),
 
               /// LIstView
               Container(
                 //height: 218,
-                constraints: const BoxConstraints(minHeight: 218, maxHeight: 228),
+                constraints: BoxConstraints(minHeight: 218.h, maxHeight: 228.h),
                 child: ListView.builder(
                   itemCount: Doctor.getAll.length,
                   scrollDirection: Axis.horizontal,
@@ -213,7 +215,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              20.spaceY(),
+              20.h.spaceY(),
             ]),
           ),
 
@@ -257,13 +259,13 @@ class _HomeState extends State<Home> {
                   ),
                   child: Image(
                     image: ExactAssetImage(Constants.healthIcons[index]),
-                    height: 48,
-                    width: 48,
+                    height: 48.h,
+                    width: 48.h,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              15.spaceX(),
+              15.w.spaceX(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,7 +274,7 @@ class _HomeState extends State<Home> {
                     HealthCategory.getAll[index].title!,
                     style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
                   ),
-                  5.spaceY(),
+                  5.h.spaceY(),
                   Text(
                     '${HealthCategory.getAll[index].doctorsAvailable!} doctors',
                     style: const TextStyle(fontSize: 12),
@@ -303,7 +305,7 @@ class _HomeState extends State<Home> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       color: Colors.transparent,
       child: Container(
-        width: 170,
+        width: 170.w,
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: const Color(0xff3a4d7f) /*Colors.white.withOpacity(0.15)*/,
@@ -312,10 +314,10 @@ class _HomeState extends State<Home> {
         child: Column(children: [
           Container(
             margin: const EdgeInsets.all(10),
-            height: 60,
+            height: 60.h,
             child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35),
           ),
-          10.spaceY(),
+          10.h.spaceY(),
           Text(
             doctor.name!,
             style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
@@ -326,7 +328,7 @@ class _HomeState extends State<Home> {
             doctor.role!,
             style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.6)),
           ),
-          14.spaceY(),
+          14.h.spaceY(),
           Text(
             'Availability:',
             style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.3)),
