@@ -85,36 +85,48 @@ class _HomeState extends State<Home> {
                             10.spaceX(),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 30),
-                                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  const SizedBox(
-                                    height: 30,
-                                    child: FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: Text(
-                                        'Self check up Covid-19',
-                                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                                  padding: const EdgeInsets.symmetric(vertical: 30).copyWith(right: 10),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 40,
+                                        margin: const EdgeInsets.only(right: 20),
+                                        child: const Text(
+                                          'Self check up Covid-19',
+                                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
-                                    ),
+                                      //10.spaceY(),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            margin: const EdgeInsets.only(right: 3, bottom: 10),
+                                            constraints: BoxConstraints(maxWidth: width - 160, maxHeight: 42),
+                                            child: Text(
+                                              'Contains Several list of Question to check Your physical Condition',
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                fontSize: 11,
+                                                color: Colors.white.withOpacity(0.7),
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ),
+                                          const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  10.spaceY(),
-                                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(right: 5),
-                                      constraints: BoxConstraints(maxWidth: width - 160, maxHeight: 42),
-                                      child: Text(
-                                        'Contains Several list of Questions to check Your physical Condition',
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.7)),
-                                      ),
-                                    ),
-                                    const Icon(CupertinoIcons.forward, color: Colors.white, size: 18),
-                                  ]),
-                                ]),
+                                ),
                               ),
-                            )
-                          ]),
+                            ],
+                          ),
                         ),
                       ),
                     );
