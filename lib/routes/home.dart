@@ -40,8 +40,8 @@ class _HomeState extends State<Home> {
                   ]),
                   CircleAvatar(
                     radius: 32.r,
-                    backgroundImage: ExactAssetImage(Constants.main),
-                    foregroundImage: ExactAssetImage(Constants.patient),
+                    backgroundImage: const ExactAssetImage(Constants.main),
+                    foregroundImage: const ExactAssetImage(Constants.patient),
                   ),
                 ]),
               ),
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: 40.h,
+                                        height: 55.h,
                                         margin: EdgeInsets.only(right: 20.w),
                                         child: Text(
                                           'Self check up Covid-19',
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(right: 3.w, bottom: 10.h),
+                                            margin: EdgeInsets.only(right: 3.w, bottom: 0.h),
                                             constraints: BoxConstraints(maxWidth: width - 160.w, maxHeight: 45.h),
                                             child: Text(
                                               'Contains Several list of Question to check Your physical Condition',
@@ -192,10 +192,10 @@ class _HomeState extends State<Home> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Top doctors', style: TextStyle(fontSize: 21, fontWeight: FontWeight.w300)),
+                    Text('Top doctors', style: TextStyle(fontSize: 21.sp, fontWeight: FontWeight.w300)),
                     Text(
                       'See all',
-                      style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7)),
+                      style: TextStyle(fontSize: 13.sp, color: Colors.white.withOpacity(0.7)),
                     ),
                   ],
                 ),
@@ -206,7 +206,7 @@ class _HomeState extends State<Home> {
               /// LIstView
               Container(
                 //height: 218,
-                constraints: BoxConstraints(minHeight: 218.h, maxHeight: 228.h),
+                constraints: BoxConstraints(minHeight: 218.h, maxHeight: 229.h),
                 child: ListView.builder(
                   itemCount: Doctor.getAll.length,
                   scrollDirection: Axis.horizontal,
@@ -235,23 +235,23 @@ class _HomeState extends State<Home> {
         return Container(
           margin: condition(
             index == 0,
-            const EdgeInsets.only(left: 32),
+            EdgeInsets.only(left: 32.w),
             condition(
               index == 2,
-              const EdgeInsets.only(right: 32),
-              const EdgeInsets.symmetric(horizontal: 10),
+              EdgeInsets.only(right: 32.w),
+              const EdgeInsets.symmetric(horizontal: 10).w,
             ),
           ),
-          constraints: const BoxConstraints(minWidth: 170),
-          padding: const EdgeInsets.all(10),
+          constraints: BoxConstraints(minWidth: 170.w),
+          padding: const EdgeInsets.all(10).r,
           decoration: BoxDecoration(
             color: const Color(0xff3a4d7f),
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16).r,
           ),
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10).r,
                 child: ColorFiltered(
                   colorFilter: const ColorFilter.mode(
                     Color(0xff4671C6),
@@ -272,12 +272,12 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(
                     HealthCategory.getAll[index].title!,
-                    style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
                   ),
                   5.h.spaceY(),
                   Text(
                     '${HealthCategory.getAll[index].doctorsAvailable!} doctors',
-                    style: const TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 12.sp),
                   ),
                 ],
               ),
@@ -294,15 +294,15 @@ class _HomeState extends State<Home> {
     return Card(
       margin: condition(
         index == 0,
-        const EdgeInsets.only(left: 32, right: 16),
+         EdgeInsets.only(left: 32.w, right: 16.w),
         condition(
           index == 6,
-          const EdgeInsets.only(right: 32),
-          const EdgeInsets.only(right: 16),
+           EdgeInsets.only(right: 32.w),
+           EdgeInsets.only(right: 16.w),
         ),
       ),
       shadowColor: Colors.transparent,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12).r),
       color: Colors.transparent,
       child: Container(
         width: 170.w,
@@ -315,7 +315,7 @@ class _HomeState extends State<Home> {
           Container(
             margin: const EdgeInsets.all(10).r,
             height: 60.h,
-            child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35),
+            child: CircleAvatar(foregroundImage: ExactAssetImage(doctor.picture!), radius: 35.r),
           ),
           10.h.spaceY(),
           Text(
