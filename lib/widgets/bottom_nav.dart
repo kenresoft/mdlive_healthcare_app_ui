@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mdlive_healthcare_app_ui/utils/extensions.dart';
 
 import '../data/constants/constants.dart';
@@ -25,13 +26,13 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
       ),
       child: Container(
         alignment: Alignment.center,
-        height: 96,
-        padding: const EdgeInsets.all(25).copyWith(top: 5, bottom: 5),
-        decoration: const BoxDecoration(
-          color: Color(0xff3a4d7f),
+        height: 104.h,
+        padding: const EdgeInsets.all(25).r.copyWith(top: 5.h, bottom: 5.h),
+        decoration: BoxDecoration(
+          color: const Color(0xff3a4d7f),
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(25),
-            topLeft: Radius.circular(25),
+            topRight: const Radius.circular(25).r,
+            topLeft: const Radius.circular(25).r,
           ),
         ),
         child: BottomNavigationBar(
@@ -42,7 +43,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
           unselectedItemColor: Theme.of(context).colorScheme.inversePrimary,
           type: BottomNavigationBarType.fixed,
           onTap: (index) => buildNavSwitch(index, context),
-          iconSize: 28,
+          iconSize: 28.h,
           backgroundColor: Colors.transparent,
           elevation: 0,
           items: [
@@ -143,10 +144,10 @@ class NavBarActiveItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60,
-      height: 60,
+      width: 60.h,
+      height: 60.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30).r,
         color: widget.page == pageIndex ? const Color(0xff4671C6) : Colors.transparent,
       ),
       child: child,

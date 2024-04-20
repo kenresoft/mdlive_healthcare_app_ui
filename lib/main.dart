@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         var state = ref.watch(themeProvider.select((value) => value));
         log(state.toString());
         return ScreenUtilInit(
-          designSize: const Size(360, 825),
+          designSize: const Size(448, 998),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) => MaterialApp.router(
