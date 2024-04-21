@@ -2,6 +2,7 @@ import 'package:extensionresoft/extensionresoft.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mdlive_healthcare_app_ui/data/constants/constants.dart';
 import 'package:mdlive_healthcare_app_ui/widgets/bottom_nav.dart';
@@ -48,7 +49,7 @@ class _HomeState extends State<Home> {
 
               /// Card
               Container(
-                height: 160.h,
+                height: 165.h,
                 padding: const EdgeInsets.symmetric(horizontal: 32).w,
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
@@ -82,7 +83,7 @@ class _HomeState extends State<Home> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            10.w.spaceX(),
+                            20.w.spaceX(),
                             Expanded(
                               child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 25.h).copyWith(right: 10.w),
@@ -91,11 +92,12 @@ class _HomeState extends State<Home> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: 55.h,
+                                        //height: 55.h,
+                                        constraints: BoxConstraints(maxHeight: 55.h),
                                         margin: EdgeInsets.only(right: 20.w),
                                         child: Text(
                                           'Self check up Covid-19',
-                                          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
+                                          style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w500),
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                         ),
@@ -103,18 +105,17 @@ class _HomeState extends State<Home> {
                                       5.h.spaceY(),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
                                             margin: EdgeInsets.only(right: 3.w, bottom: 0.h),
-                                            constraints: BoxConstraints(maxWidth: width - 160.w, maxHeight: 45.h),
+                                            constraints: BoxConstraints(maxWidth: width - 170.w, maxHeight: 45.h),
                                             child: Text(
                                               'Contains Several list of Question to check Your physical Condition',
                                               maxLines: 2,
                                               softWrap: false,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                fontSize: 11.sp,
+                                                fontSize: 12.sp,
                                                 color: Colors.white.withOpacity(0.7),
                                                 fontWeight: FontWeight.w400,
                                               ),
@@ -140,7 +141,7 @@ class _HomeState extends State<Home> {
 
               /// TextField
               Container(
-                height: 70.h,
+                height: 75.h,
                 padding: const EdgeInsets.symmetric(horizontal: 32).w,
                 child: TextField(
                   maxLines: null,
@@ -205,8 +206,9 @@ class _HomeState extends State<Home> {
 
               /// LIstView
               Container(
-                //height: 218,
-                constraints: BoxConstraints(minHeight: 218.h, maxHeight: 229.h),
+                //height: 240,
+                //width: 1.sw,
+                constraints: BoxConstraints(minHeight: 218.h, maxHeight: 219.h),
                 child: ListView.builder(
                   itemCount: Doctor.getAll.length,
                   scrollDirection: Axis.horizontal,
